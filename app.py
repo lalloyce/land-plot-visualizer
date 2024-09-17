@@ -7,15 +7,52 @@ from io import BytesIO
 app = Flask(__name__)
 
 def acres_to_square_feet(acres):
+    """
+    Converts acres to square feet.
+    
+    Parameters:
+    acres (float): The area in acres.
+    
+    Returns:
+    float: The area in square feet.
+    """
     return acres * 43560
 
 def ha_to_square_feet(ha):
+    """
+    Converts hectares to square feet.
+    
+    Parameters:
+    ha (float): The area in hectares.
+    
+    Returns:
+    float: The area in square feet.
+    """
     return ha * 107639
 
 def m2_to_square_feet(m2):
+    """
+    Converts square meters to square feet.
+    
+    Parameters:
+    m2 (float): The area in square meters.
+    
+    Returns:
+    float: The area in square feet.
+    """
     return m2 * 10.7639
 
 def create_horseshoe_layout(land_size, unit='acres'):
+    """
+    Creates a horseshoe layout for a given land size and unit.
+    
+    Parameters:
+    land_size (float): The size of the land.
+    unit (str, optional): The unit of the land size. Defaults to 'acres'.
+    
+    Returns:
+    tuple: A tuple containing the PIL Image object and the total plot count.
+    """
     # Convert land size to square feet
     if unit == 'acres':
         total_area = acres_to_square_feet(land_size)
@@ -139,10 +176,19 @@ def create_horseshoe_layout(land_size, unit='acres'):
 
 @app.route('/')
 def index():
+    """
+    Handles the root URL and renders the index.html template.
+    """
     return render_template('index.html')
 
 @app.route('/generate', methods=['POST'])
 def generate():
+    """
+    Handles the POST request to generate a horseshoe layout image.
+    
+    Returns:
+    dict: A dictionary containing the base64 encoded image data and the total plot count.
+    """
     land_size = float(request.form['land_size'])
     unit = request.form['unit']
 
