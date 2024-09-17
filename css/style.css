@@ -1,0 +1,23 @@
+/* Sets the font family and margin for the body of the document */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Centers the text alignment for h1 headings */
+h1 {
+    text-align: center;
+}
+
+/* Sets the margin bottom and text alignment for forms */
+form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styles for canvas elements, including border, display, and margin */
+canvas {
+    border: 1px solid #000; /* Sets a 1px solid black border */
+    display: block; /* Displays the canvas as a block element */
+    margin: 0 auto; /* Centers the canvas horizontally */
+}

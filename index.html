@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title of the page -->
     <title>Horseshoe Land Plot Visualizer</title>
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Ensure this path is correct -->
     <!-- External scripts for Tailwind CSS and Alpine.js -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
@@ -50,10 +52,17 @@
         <img :src="'data:image/png;base64,' + plotImage" alt="Horseshoe Plot Layout" class="mx-auto mb-4 max-w-full h-auto">
         <p class="text-lg font-semibold">Total number of plots: <span x-text="plotCount"></span></p>
     </div>
+    <canvas id="landCanvas" width="800" height="600" style="border:1px solid #000;"></canvas>
 </div>
 
 <!-- JavaScript for the page -->
+<script src="js/script.js"></script> <!-- Ensure this path is correct -->
 <script>
+    /**
+     * Function to initialize the plot visualizer.
+     * 
+     * @returns {Object} An object containing properties and methods for the plot visualizer.
+     */
     function plotVisualizer() {
         return {
             landSize: 10,
@@ -61,6 +70,9 @@
             loading: false,
             plotImage: null,
             plotCount: 0,
+            /**
+             * Generates the horseshoe plot layout based on the input land size and unit.
+             */
             generatePlot() {
                 this.loading = true;
                 this.plotImage = null;
