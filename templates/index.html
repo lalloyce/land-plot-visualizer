@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land Plot Visualizer</title>
+    <title>Horseshoe Land Plot Visualizer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+    <style>
+        .plot {
+            background-color: #FFD700;
+            border: 1px solid #D4AF37;
+        }
+        .road {
+            background-color: #4A4A4A;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center">
 <div class="container mx-auto p-8 bg-white rounded-lg shadow-md" x-data="plotVisualizer()">
-    <h1 class="text-3xl font-bold mb-6 text-center">Land Plot Visualizer</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Horseshoe Land Plot Visualizer</h1>
     <form @submit.prevent="generatePlot" class="mb-8">
         <div class="mb-4">
             <label for="land_size" class="block text-sm font-medium text-gray-700 mb-2">Land Size:</label>
@@ -23,13 +32,13 @@
                 <option value="m2">Square Meters</option>
             </select>
         </div>
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Generate Plot Layout</button>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Generate Horseshoe Plot Layout</button>
     </form>
     <div x-show="loading" class="text-center">
-        <p class="text-lg font-semibold">Generating plot layout...</p>
+        <p class="text-lg font-semibold">Generating horseshoe plot layout...</p>
     </div>
     <div x-show="plotImage" class="text-center">
-        <img :src="'data:image/png;base64,' + plotImage" alt="Plot Layout" class="mx-auto mb-4 max-w-full h-auto">
+        <img :src="'data:image/png;base64,' + plotImage" alt="Horseshoe Plot Layout" class="mx-auto mb-4 max-w-full h-auto">
         <p class="text-lg font-semibold">Total number of plots: <span x-text="plotCount"></span></p>
     </div>
 </div>
