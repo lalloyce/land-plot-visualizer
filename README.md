@@ -25,7 +25,7 @@ Land Plot Visualizer is a web application that helps users visualize how a parce
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/land-plot-visualizer.git
+   git clone https://github.com/lalloyce/land-plot-visualizer.git
    cd land-plot-visualizer
    ```
 
