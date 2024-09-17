@@ -1,82 +1,63 @@
 # Land Plot Visualizer
 
-## Overview
-
-Land Plot Visualizer is a web application that helps users visualize how a parcel of land can be divided into smaller plots. Users can input the size of their land in acres, hectares, or square meters, and the application generates a visual representation of the plot layout, optimizing for the maximum number of 50x100 feet plots while ensuring accessibility with 12-foot wide roads.
+A web application that allows users to visualize land plots based on specified dimensions and units. The application uses HTML, CSS, and JavaScript to create an interactive canvas where users can see their land divided into plots and roads.
 
 ## Features
 
-- Input land size in acres, hectares, or square meters
-- Generate a visual layout of land plots
-- Calculate the maximum number of 50x100 feet plots that can fit in the given area
-- Ensure all plots are accessible via 12-foot wide roads
-- Responsive web interface for easy use on desktop and mobile devices
-
-## Technologies Used
-
-- Backend: Python, Flask
-- Frontend: HTML, JavaScript (Alpine.js)
-- Styling: Tailwind CSS
-- Image Processing: Pillow (Python Imaging Library)
+- Convert land size from acres, hectares, or square meters to square feet.
+- Dynamically resize the canvas to fit the screen.
+- Draw plots of land as rectangles with distinct borders.
+- Label each plot and road for easy identification.
 
 ## Installation
 
+To get started with the Land Plot Visualizer, follow these steps:
+
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/lalloyce/land-plot-visualizer.git
    cd land-plot-visualizer
    ```
 
-2. Create a virtual environment (optional but recommended):
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
-
-3. Install the required packages:
-   ```
-   pip install flask pillow
-   ```
+2. Open `index.html` in your web browser.
 
 ## Usage
 
-1. Start the Flask application:
-   ```
-   python app.py
-   ```
+1. Enter the land size and select the unit (acres, hectares, or square meters).
+2. Click the submit button to visualize the land on the canvas.
+3. Resize the window to see the canvas adjust dynamically.
 
-2. Open a web browser and navigate to `http://localhost:5000`
+## Technologies Used
 
-3. Enter the land size and select the unit (acres, hectares, or square meters)
-
-4. Click "Generate Plot Layout" to view the visualization
-
-## Project Structure
-
-```
-land-plot-visualizer/
-│
-├── app.py                 # Flask application and backend logic
-├── templates/
-│   └── index.html         # Frontend HTML/JS/CSS
-├── README.md              # This file
-└── requirements.txt       # Python dependencies
-```
+- HTML5
+- CSS3
+- JavaScript
+- Canvas API
 
 ## Contributing
 
-Contributions to the Land Plot Visualizer project are welcome! Please follow these steps:
+Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature-branch-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature-branch-name`
-5. Submit a pull request
+1. Fork the repository.
+2. Create your feature branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a pull request.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
+## Acknowledgments
 
-If you have any questions, feel free to reach out to Lawrence Juma at lalloyce@gmail.com.
+- Inspired by various web applications that visualize data.
+- Thanks to the open-source community for their contributions and support.

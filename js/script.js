@@ -123,7 +123,10 @@ function drawPlotsAndRoads() {
     const canvas = document.getElementById('landCanvas');
     const ctx = canvas.getContext('2d');
 
-    // Function to draw a rectangle with a border and a label
+    // Clear the canvas before drawing
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Function to draw a rectangle with a border
     function drawRectangle(x, y, width, height, fillColor, borderColor, label) {
         ctx.fillStyle = fillColor;
         ctx.fillRect(x, y, width, height);
@@ -137,15 +140,34 @@ function drawPlotsAndRoads() {
         ctx.fillText(label, x + 5, y + 20); // Adjust position for label
     }
 
+    // Calculate plot dimensions based on canvas size
+    const plotWidth = canvas.width / 3 - 20; // 3 plots with some margin
+    const plotHeight = 100;
+
     // Draw plots of land
-    drawRectangle(50, 50, 150, 100, '#FFD700', '#D4AF37', 'Plot 1');
-    drawRectangle(250, 50, 150, 100, '#FFD700', '#D4AF37', 'Plot 2');
-    drawRectangle(450, 50, 150, 100, '#FFD700', '#D4AF37', 'Plot 3');
+    drawRectangle(10, 10, plotWidth, plotHeight, '#FFD700', '#D4AF37', 'Plot 1');
+    drawRectangle(plotWidth + 20, 10, plotWidth, plotHeight, '#FFD700', '#D4AF37', 'Plot 2');
+    drawRectangle((plotWidth + 20) * 2, 10, plotWidth, plotHeight, '#FFD700', '#D4AF37', 'Plot 3');
 
     // Draw roads
-    drawRectangle(50, 200, 600, 50, '#4A4A4A', '#FFFFFF', 'Main Road');
-    drawRectangle(50, 300, 600, 50, '#4A4A4A', '#FFFFFF', 'Side Road');
+    drawRectangle(10, plotHeight + 20, canvas.width - 20, 50, '#4A4A4A', '#FFFFFF', 'Main Road');
 }
 
-// Call the function to draw plots and roads
-drawPlotsAndRoads();
+// Initial canvas size setup
+resizeCanvas();
+
+// Event listener for window resize
+window.addEventListener('resize', resizeCanvas);
+
+// Function to set the canvas size to fit the window
+function resizeCanvas() {
+    const canvas = document.getElementById('landCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas width and height to the window's inner width and height
+    canvas.width = window.innerWidth - 20; // Subtracting some margin
+    canvas.height = window.innerHeight - 20; // Subtracting some margin
+
+    // Redraw the plots and roads after resizing
+    drawPlotsAndRoads();
+}
