@@ -1,4 +1,3 @@
-# landsubdivision
 
 # Land Plot Visualizer
 
