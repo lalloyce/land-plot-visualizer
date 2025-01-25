@@ -1,0 +1,17 @@
+{
+  "name": "land-plot-visualizer",
+  "version": "1.0.0",
+  "description": "A web application for visualizing land plots based on specified dimensions and units",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./css/style.css -o ./css/output.css --watch",
+    "build": "npx tailwindcss -i ./css/style.css -o ./css/output.css --minify"
+  },
+  "dependencies": {
+    "alpinejs": "^3.12.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}
